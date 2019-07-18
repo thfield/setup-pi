@@ -1,0 +1,58 @@
+# setting up a new pi
+
+## create the sd card
+1. format card
+2. write image to card
+
+https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
+
+```
+  sudo dd bs=1m if=2019-06-20-raspbian-buster.img of=/dev/disk2 conv=sync
+```
+
+## config some boot settings
+add to /boot/config.txt
+```
+  # rotate the official screen 180deg
+  lcd_rotate=2
+
+  # Disable the ACT LED.
+  dtparam=act_led_trigger=none
+  dtparam=act_led_activelow=off
+
+  # Disable the PWR LED.
+  dtparam=pwr_led_trigger=none
+  dtparam=pwr_led_activelow=off
+
+  # Disable the camera LED
+  disable_camera_led=1
+
+  # Disable bluetooth
+  #dtoverlay=pi3-disable-bt
+
+```
+
+## install some software
+```
+  sudo apt-get update
+  sudo apt-get -y upgrade
+  sudo apt-get -y install vim
+```
+
+## enable ll
+```
+  vim ~/.bashrc
+
+  search for "ls"
+```
+
+## update the firmware
+```
+  sudo rpi-update
+```
+
+## auto-mount a usb drive
+
+
+## scan network for pis
+  sudo nmap -sn 192.168.0.0/24
