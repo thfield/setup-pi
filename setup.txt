@@ -2,12 +2,15 @@
 
 ## create the sd card
 1. format card
-2. write image to card
+2. use diskutil to unmount
+3. write image to card
 
 https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
 
 ```
-  sudo dd bs=1m if=2019-06-20-raspbian-buster.img of=/dev/disk2 conv=sync
+  sudo dd bs=1m if=2019-07-10-raspbian-buster.img of=/dev/disk2 conv=sync
+  sudo dd bs=1m if=2019-04-08-raspbian-stretch-lite.img of=/dev/disk2 conv=sync
+  sudo dd bs=1m if=2019-04-08-raspbian-stretch.img of=/dev/disk2 conv=sync
 ```
 
 ## config some boot settings
@@ -38,6 +41,9 @@ add to /boot/config.txt
   sudo apt-get -y upgrade
   sudo apt-get -y install vim
 ```
+apt-get update not working?
+  "InRelease is not valid yet"
+  sudo apt-get update --allow-releaseinfo-change
 
 ## enable ll
 ```
@@ -56,3 +62,10 @@ add to /boot/config.txt
 
 ## scan network for pis
   sudo nmap -sn 192.168.0.0/24
+
+
+
+
+http://www.diegoacuna.me/how-to-run-a-script-as-a-service-in-raspberry-pi-raspbian-jessie/
+https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/#systemd
+https://www.raspberrypi.org/documentation/linux/usage/systemd.md
