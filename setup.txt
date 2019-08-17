@@ -63,8 +63,14 @@ apt-get update not working?
 ## scan network for pis
   sudo nmap -sn 192.168.0.0/24
 
-
-
+## add ssh public key
+```
+  mkdir ~/.ssh
+  vim ~/.ssh/authorized_keys
+  # add id_rsa.pub
+  chmod 640 ~/.ssh/authorized_keys
+  sudo service ssh restart
+```
 
 http://www.diegoacuna.me/how-to-run-a-script-as-a-service-in-raspberry-pi-raspbian-jessie/
 https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/#systemd
