@@ -72,6 +72,39 @@ apt-get update not working?
   sudo service ssh restart
 ```
 
+## run something as a service
 http://www.diegoacuna.me/how-to-run-a-script-as-a-service-in-raspberry-pi-raspbian-jessie/
 https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/#systemd
 https://www.raspberrypi.org/documentation/linux/usage/systemd.md
+
+
+# How to Stream Video Remotely From Raspberry Pi
+Run this command on laptop/desktop computer:
+```
+  nc -l 2222 | mplayer -fps 25 -demuxer h264es -
+```
+
+Then run this command on Raspberry Pi:
+```
+  raspivid -t 0 -fps 25 -w 1280 -h 720 -o - | nc REPLACE_WITH_YOUR_IP 2222
+```
+https://blog.robertelder.org/commands-raspberry-pi-camera/
+
+
+## official touchscreen
+https://github.com/linusg/rpi-backlight
+
+https://forums.pimoroni.com/t/official-7-raspberry-pi-touch-screen-faq/959
+backlight On:
+```
+  echo 0 > /sys/class/backlight/rpi_backlight/bl_power
+```
+
+backlight Off:
+```
+  echo 1 > /sys/class/backlight/rpi_backlight/bl_power
+```
+
+## change clock to hh:mm am/pm
+clock settings
+  %I:%M %p
