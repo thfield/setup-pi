@@ -92,6 +92,9 @@ https://blog.robertelder.org/commands-raspberry-pi-camera/
 
 
 ## official touchscreen
+timeout backlight (modify run-timeout.sh, put in ~/bin, add to /etc/rc.local)
+https://github.com/DougieLawson/backlight_dimmer
+
 https://github.com/linusg/rpi-backlight
 
 https://forums.pimoroni.com/t/official-7-raspberry-pi-touch-screen-faq/959
@@ -108,3 +111,9 @@ backlight Off:
 ## change clock to hh:mm am/pm
 clock settings
   %I:%M %p
+
+## set hostname
+
+change hostname 127.0.1.1
+  sudo vim /etc/hostname
+  sudo vim /etc/hosts
