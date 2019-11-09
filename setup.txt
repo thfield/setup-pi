@@ -117,3 +117,7 @@ clock settings
 change hostname 127.0.1.1
   sudo vim /etc/hostname
   sudo vim /etc/hosts
+
+
+## get temp
+/opt/vc/bin/vcgencmd measure_temp
